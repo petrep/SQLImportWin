@@ -1,0 +1,27 @@
+CREATE TABLE `mydb`.`mytable1` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+
+
+
+INSERT INTO `mydb`.`mytable1` (`id`, `name`) VALUES ('1', 'Alf');
+INSERT INTO `mydb`.`mytable1` (`id`, `name`) VALUES ('2', 'Bruno');
+INSERT INTO `mydb`.`mytable1` (`id`, `name`) VALUES ('3', 'Collins');
+
+
+Without:   Include create schema
+
+
+mysql -u username -ppassword database_name  FILE.sql
+mysql -u root -ppassword mydb Dump20220601.sql
+
+
+mysql -u root -ppassword -e "CREATE DATABASE mydb"
+mysql -u root -ppassword mydb < Dump20220601.sql
+
+
+Runtime.getRuntime().exec("mysql -u username -ppassword database_name  FILE.sql")
+
+
+
